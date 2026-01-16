@@ -19,9 +19,18 @@ import pickle
 
 import matplotlib.pyplot as plt
 import numpy as np
-from qutip import (Options, basis, expect, ket2dm, liouvillian, mesolve,
-                   operator_to_vector, vector_to_operator)
+from qutip import (
+    Options,
+    basis,
+    expect,
+    ket2dm,
+    liouvillian,
+    mesolve,
+    operator_to_vector,
+    vector_to_operator,
+)
 from scipy.optimize import minimize
+
 from tf_agents.environments import py_environment
 from tf_agents.specs import array_spec
 from tf_agents.trajectories import time_step as ts
@@ -29,7 +38,7 @@ from tqdm.auto import trange
 
 opts = Options(atol=1e-11, rtol=1e-9, nsteps=int(1e6))
 # opts = Options(atol=1e-13, rtol=1e-11, nsteps=int(1e6))
-opts.normalize_output = False  # mesolve is x3 faster if this is False
+# opts.normalize_output = False  # mesolve is x3 faster if this is False
 
 
 class ThreeLS_v0_env(py_environment.PyEnvironment):
@@ -386,7 +395,7 @@ def plot_evolution(amps, env_parameters, mesolve_check=False):
     ax[1].legend()
     fig.tight_layout()
 
-    print(f"final efficiency = {state_list[-1,2]}")
+    print(f"final efficiency = {state_list[-1, 2]}")
     if mesolve_check:
         print(
             f"final efficiency (mesolve) = {expect(env_py.target_state, result.states[-1])}"
