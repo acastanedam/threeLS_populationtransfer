@@ -1,8 +1,9 @@
 qutip==5.2.3
 tensorboard==2.15.2
 tensorboard-data-server==0.7.2
-tensorflow==2.15.0
+tensorflow[and-cuda]==2.15.1
 tensorflow-estimator==2.15.0
 tensorflow-io-gcs-filesystem==0.37.1
 tensorflow-probability==0.23.0
-tf-agents==0.19.0
+tf-agents[reverb]==0.19.0
+ipyparallel==9.0.2
